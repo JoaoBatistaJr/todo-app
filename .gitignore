@@ -1,8 +1,8 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# ============================================
+# Node / Next.js
+# ============================================
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,32 +10,72 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+.next/
+out/
+build/
 
-# next.js
-/.next/
-/out/
+# Cobertura de testes
+coverage/
 
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 .pnpm-debug.log*
+logs/
+*.log
 
-# env files (can opt-in for committing if needed)
+# Arquivos de ambiente
 .env*
+!.env.example
 
-# vercel
-.vercel
-
-# typescript
+# Tipos do TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# ============================================
+# IDEs e Editores
+# ============================================
+# VSCode
+.vscode/
+
+# JetBrains (WebStorm, IntelliJ)
+.idea/
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+
+# ============================================
+# Arquivos do Sistema
+# ============================================
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ============================================
+# Caches e Temporários
+# ============================================
+.cache/
+.parcel-cache/
+.npm/
+*.tmp
+*.temp
+
+# ============================================
+# Outros
+# ============================================
+.vercel
+*.pem
