@@ -62,7 +62,7 @@ export default function Page() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-4 border rounded shadow-lg bg-white">
+    <div className="max-w-md mx-auto mt-10 p-4 border rounded shadow-lg bg-blue-400">
       <h1 className="text-xl text-black font-bold mb-4 text-center">
         Lista de Tarefas
       </h1>
