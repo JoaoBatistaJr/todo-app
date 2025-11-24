@@ -36,6 +36,19 @@ export async function PUT(req) {
   return new Response(JSON.stringify({ ok: true }), { status: 200 });
 }
 
+export async function PATCH(req) {
+  const { id, text } = await req.json();
+  const data = JSON.parse(await fs.readFile(filePath, 'utf8'));
+
+  const updated = data.map((todo) =>
+    todo.id === id ? {...todo, text } : todo
+  );
+
+  await fs.writeFile(filePath, JSON.stringify(updated, null, 2));
+
+  return new Response(JSON.stringify({ok: true }), {status: 200 });
+}
+
 export async function DELETE(req) {
   const { id } = await req.json();
 
