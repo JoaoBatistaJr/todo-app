@@ -26,22 +26,21 @@ export default function TodoItem({
   const [value, setValue] = useState(todo.text);
 
   const handleSave = () => {
-    if (value.trim() === '' || value === todo.text) {
-      setIsEditing(false);
-      return;
+    if (value.trim() !== '' && value !== todo.text) {
+      editTodo(todo.id, value);
     }
-
-    editTodo(todo.id, value);
     setIsEditing(false);
   };
 
   return (
-    <div className="flex justify-between items-center p-2 border-b">
+    <div className="flex justify-between items-center bg-gray-800 p-3 rounded-lg mb-2 
+                    border border-gray-700 shadow">
 
       {isEditing ? (
         <input
           type="text"
-          className="border px-2 py-1 rounded w-full mr-2"
+          className="px-2 py-1 w-full mr-2 bg-gray-700 rounded text-gray-200 
+                     border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-600"
           value={value}
           autoFocus
           onChange={(e) => setValue(e.target.value)}
@@ -50,11 +49,9 @@ export default function TodoItem({
         />
       ) : (
         <span
-          className={
-            todo.done
-              ? 'line-through text-gray-400 cursor-pointer'
-              : 'cursor-pointer'
-          }
+          className={`cursor-pointer text-gray-200 ${
+            todo.done ? 'line-through text-gray-500' : ''
+          }`}
           onClick={() => setIsEditing(true)}
         >
           {todo.text}
@@ -64,14 +61,14 @@ export default function TodoItem({
       <div className="flex gap-2">
         <button
           onClick={() => toggleTodo(todo.id)}
-          className="bg-green-500 text-white px-2 py-1 rounded"
+          className="px-2 py-1 bg-green-600 hover:bg-green-700 text-white rounded-lg shadow"
         >
           ✔
         </button>
 
         <button
           onClick={() => deleteTodo(todo.id)}
-          className="bg-red-500 text-white px-2 py-1 rounded"
+          className="px-2 py-1 bg-red-600 hover:bg-red-700 text-white rounded-lg shadow"
         >
           🗑
         </button>

@@ -23,10 +23,14 @@ export default function TodoForm({ addTodo }: TodoFormProps) {
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        className="border text-black p-2 flex-1 rounded"
+        className="flex-1 p-2 rounded-lg bg-gray-800 text-gray-200 border border-gray-700
+                   focus:outline-none focus:ring-2 focus:ring-blue-600"
         placeholder="Nova tarefa..."
       />
-      <button className="bg-blue-500 text-white p-2 ml-2 rounded">
+      <button
+        className="ml-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold
+                   transition-shadow shadow-md"
+      >
         Adicionar
       </button>
     </form>
